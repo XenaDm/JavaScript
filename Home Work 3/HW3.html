@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Work 3</title>
+</head>
+<body>
+<script>
+    // - 1.За допомогою циклу for і document.write() вивести 10 блоків div з довільним текстом всередині
+
+    for (let i = 0; i < 10; i++) {
+        document.write('<div>Lorem ipsum dolor sit amet?</div>');
+    }
+    //====================================================================
+    // - За допомогою циклу for і document.write() вивести 10 блоків div c довільним текстом і індексом всередині
+    for (let i = 0; i < 10; i++) {
+        document.write(`<div>${i} Lorem ipsum dolor sit amet?</div>`);
+    }
+    //====================================================================
+    // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
+    let block = 0;
+    while (block <= 20) {
+        document.write(`<h1> Lorem ipsum dolor sit amet?</h1>`);
+        block++;
+    }
+    //====================================================================
+    // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
+    let block1 = 0;
+    while (block1 <= 20) {
+        document.write(`<h1>${block1} Lorem ipsum dolor sit amet?</h1>`);
+        block1++;
+    }
+    //====================================================================
+    // - Використовуючи данні з масиву, за допомоги document.write та циклу
+    // побудувати структуру по шаблону
+    // Масив:
+        let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
+    // ШАБЛОН:
+    //     <ul>
+    //         <li>ITEM OF ARRAY</li>
+    //         <!--
+    //             і тд інші об'єкти масиву
+    //              ...
+    //              ...
+    //              ...
+    //         -->
+    //     </ul>
+    // замість 'ITEM OF ARRAY' підставити елемент з масиву щоб получився цілий список з даними з масиву
+    for (const item of listOfItems) {
+        document.write('<ul>');
+            document.write('<li>'+ item +'</li>')
+            document.write('</ul>')
+    }
+    //====================================================================
+    //     Використовуючи данні з масиву, за допомоги document.write та циклу побудувати структуру по шаблону
+    // Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон
+
+    let products = [
+        {
+            title: 'milk',
+            price: 22,
+            image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+        },
+        {
+            title: 'juice',
+            price: 27,
+            image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+        },
+        {
+            title: 'tomato',
+            price: 47,
+            image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+        },
+        {
+            title: 'tea',
+            price: 15,
+            image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+        },
+    ];
+    // ШАБЛОН
+    // <div class="product-card">
+    //     <h3 class="product-title">TITLE. Price - PRICE</h3>
+    // <img src="IMAGE" alt="" class="product-image">
+    // </div>
+    //*Замість TITLE PRICE IMAGE - підставити відповідні поля з об'єкту
+
+    for (prod of products) {
+        document.write(
+            `<div class="product-card">
+<h3 class="product-title"> ${prod.title}. Price - ${prod.price}</h3>
+<img src="${prod.image}" alt="${prod.title}" class="product-image">
+</div>`);
+    }
+    //====================================================================
+    // є масив
+    let users = [
+        {name: 'vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'kolya', age: 29, status: true},
+        {name: 'olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'andrey', age: 29, status: true},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: false},
+        {name: 'max', age: 31, status: true}
+    ];
+    // за допомоги циклу вивести:
+    // - користувачів зі статусом true
+    // - користувачів зі статусом false
+    // - користувачів які старші за 30 років
+    let arrTrue = [];
+    let arrFalse = [];
+    let arrOlderThan30 = [];
+    for (const key in users){
+        let user = users[key];
+        if(user.status) {
+            arrTrue[arrTrue.length] = user; //arrTrue.push(user)
+        } else {
+            arrFalse[arrFalse.length] = user; // arrFalse.push(user)
+        }
+        if (user.age > 30) {
+            arrOlderThan30[arrOlderThan30] = user; // arrOlderThan30.push(user)
+        }
+    }
+    console.log(arrTrue);
+    console.log(arrFalse);
+    console.log(arrOlderThan30);
+</script>
+</body>
+</html>
